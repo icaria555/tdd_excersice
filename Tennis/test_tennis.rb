@@ -37,7 +37,7 @@ describe Tennis do
             tennis.won(1)
             tennis.won(2)
         end
-        expect(tennis.is_duece()).to eq("deuce")
+        expect(tennis.is_duece()).to eq(true)
         expect(tennis.won(1)).to eq("No winning")
     end
     

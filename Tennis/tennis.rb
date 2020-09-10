@@ -1,6 +1,7 @@
 class Tennis
     @@NORMAL_MODE = 'normal'
     @@DEUCE_MODE = 'deuce'
+    
     SCORE = {
         0 => 15,
         15 => 30,
@@ -22,13 +23,13 @@ class Tennis
                 @player_one += 1
                 @player_two -= 1
             else
-                @player_one += 1
-                @player_two -= 1
+                @player_one -= 1
+                @player_two += 1
             end
         end
+        @mode = @@DEUCE_MODE if(is_duece())
         winner()
     end
-    
     
     def winner()
         if(@mode == @@DEUCE_MODE)
@@ -42,7 +43,7 @@ class Tennis
     end
     
     def is_duece()
-        @mode = @@DEUCE_MODE if(@player_one == @player_two && @player_two == 40)
+        @player_one == @player_two && @player_two == 40
     end
     
     def player_one()
